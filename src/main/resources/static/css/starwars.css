@@ -1,0 +1,51 @@
+nav {
+    background-color: black;
+    padding-right: 100px;
+}
+
+nav a:visited, a:link, a:active {
+    text-decoration: none;
+    color: gold;
+}
+
+nav a:hover {
+    color: aqua;
+}
+
+nav h1 {
+    vertical-align: middle;
+    font-family: Magneto, serif;
+    font-size: xx-large;
+}
+
+error{
+    background-color: red;
+    border-bottom-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    box-shadow: 5px 5px #777777;
+    color: white;
+    margin-left: 0.5em;
+    padding: 0.5em;
+    font-size: x-small;
+}
+
+footer {
+    display: flex;
+    background-color: cadetblue;
+    justify-content: space-between;
+    padding: 0.5em;
+    font-size: x-small;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin-top: 1rem;
+}
+
+.fullwidth {
+    width: 100%;
+}

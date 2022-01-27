@@ -1,0 +1,26 @@
+<div lang="nl" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:fragment="head(title)">
+        <meta charset="UTF-8">
+        <link rel="icon" th:href="@{/images/starwars.ico}" type="image/x-icon">
+        <title th:text="${title}"></title>
+        <link rel="stylesheet" th:href="@{/css/starwars.css}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css}" rel="stylesheet">
+        <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js}"></script>
+        <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.15.2/css/all.css}"/>
+        <style>body {
+            background-color: oldlace
+        }</style>
+    </head>
+
+    <nav class="navbar navbar-expand-lg" th:fragment="menu">
+        <div class="container-fluid">
+            <h1><a th:href="@{/}">STAR WARS</a></h1>
+        </div>
+    </nav>
+
+    <footer th:fragment="footer">
+        <p>© 2022 STAR WARS</p>
+        <p>Alle rechten voorbehouden <img th:src="@{/images/HD_logo.png}" height="10px"></p>
+    </footer>
+</div>
