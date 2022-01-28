@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title='Film zoeken')"></head>
+<body>
+<nav th:replace="fragments::header"></nav>
+<div class="container">
+    <form th:object="${filmForm}" method="get" th:action="@{/}">
+        <label>Nummer:<span th:errors="*{filmNummer}"></span>
+            <input th:field="*{filmNummer}" autofocus required>
+        </label>
+        <div>
+            <button class="rounded">Zoeken</button>
+        </div>
+    </form>
+</div>
+<footer th:replace="fragments::footer"></footer>
+</body>
+</html>

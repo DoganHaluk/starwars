@@ -1,6 +1,10 @@
 nav {
     background-color: black;
-    padding-right: 100px;
+    padding-right: 200px;
+}
+
+.container{
+    justify-content: space-around;
 }
 
 nav a:visited, a:link, a:active {
@@ -32,7 +36,8 @@ error{
 
 footer {
     display: flex;
-    background-color: cadetblue;
+    background-color: black;
+    color: aqua;
     justify-content: space-between;
     padding: 0.5em;
     font-size: x-small;
