@@ -22,6 +22,14 @@ nav h1 {
     font-size: xx-large;
 }
 
+input{
+    display: block;
+}
+
+.button{
+    margin-top: 1.3em;
+}
+
 error{
     background-color: red;
     border-bottom-right-radius: 0.5em;

@@ -4,14 +4,12 @@
 <body>
 <nav th:replace="fragments::header"></nav>
 <div class="container">
-    <form th:object="${filmForm}" method="get" th:action="@{/}">
-        <label>Nummer:<span th:errors="*{filmNummer}"></span>
-            <input th:field="*{filmNummer}" autofocus required>
-        </label>
-        <div>
-            <button class="rounded">Zoeken</button>
-        </div>
-    </form>
+    <label><h5>Nummer:<span class="fout" id="moetPositief" hidden> moet positief zijn!</span></h5>
+        <input id="nummer" type="number" autofocus required min="1">
+    </label>
+    <div class="button">
+        <button class="rounded" id="zoeken">Zoeken</button>
+    </div>
 </div>
 <footer th:replace="fragments::footer"></footer>
 </body>

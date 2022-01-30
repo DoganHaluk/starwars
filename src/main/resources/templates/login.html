@@ -4,11 +4,13 @@
 <body>
 <nav th:replace="fragments::header"></nav>
 <div class="container">
-    <h2>Inloggen</h2>
+    <h5>Inloggen</h5>
     <form th:action="@{/login}" method="post">
         <input name="username" required autofocus placeholder="Gebruikersnaam">
         <input name="password" type="password" required placeholder="Paswoord">
-        <button>Inloggen</button>
+        <div class="button">
+            <button>Inloggen</button>
+        </div>
     </form>
     <div th:if="${param.error}">Verkeerde gebruikersnaam of paswoord</div>
 </div>
