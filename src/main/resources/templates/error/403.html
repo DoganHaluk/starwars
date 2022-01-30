@@ -3,10 +3,10 @@
 <head th:replace="fragments::head(title='Geen toegang')"></head>
 <body>
 <nav th:replace="fragments::header"></nav>
-<main>
+<div class="container">
     <img th:src="@{/images/403.png}" alt="Forbidden" class="fullwidth">
     <h2>U hebt geen toegang tot de pagina.</h2>
-</main>
+</div>
 <footer th:replace="fragments::footer"></footer>
 </body>
 </html>

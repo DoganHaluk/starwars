@@ -10,6 +10,17 @@
     <div class="button">
         <button class="rounded" id="zoeken">Zoeken</button>
     </div>
+    <h5 th:if="not ${film}">Film niet gevonden</h5>
+    <dl th:if="${film}" th:object="${film}">
+        <dt>Titel</dt>
+        <dd th:text="*{title}"></dd>
+        <dt>Regisseur</dt>
+        <!--<dd th:text="*{director}"></dd>
+        <dt>Uitgekomen op</dt>
+        <dd th:text="*{releaseDate}"></dd>-->
+        <!--<dt>Karakters</dt>
+        <dd th:each="karakter:*{characters}" th:text="*{karakter}" th:object="*{characters}"></dd>-->
+    </dl>
 </div>
 <footer th:replace="fragments::footer"></footer>
 </body>
