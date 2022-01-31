@@ -11,16 +11,36 @@
         <button class="rounded" id="zoeken">Zoeken</button>
     </div>
     <h5 th:if="${nietGevonden}" th:text="*{nietGevonden}"></h5>
-    <dl th:if="${film}" th:object="${film.result.properties}">
-        <dt>Titel</dt>
-        <dd th:text="*{title}"></dd>
-        <dt>Regisseur</dt>
-        <dd th:text="*{director}"></dd>
-        <dt>Uitgekomen op</dt>
-        <dd th:text="*{releaseDate}"></dd>
-        <dt>Karakters</dt>
-        <dd th:each="karakter:${karakters}" th:text="${karakter}"></dd>
-    </dl>
+    <div th:if="${film}">
+        <dl th:object="${film.result.properties}">
+            <dt>Titel</dt>
+            <dd th:text="*{title}"></dd>
+            <dt>Regisseur</dt>
+            <dd th:text="*{director}"></dd>
+            <dt>Uitgekomen op</dt>
+            <dd th:text="*{releaseDate}"></dd>
+            <dt>Karakters</dt>
+            <dd th:each="karakter:${karakters}" th:text="${karakter}"></dd>
+        </dl>
+        <div th:if="not ${score}">
+            <form method="post" th:object="${scoreForm}" th:action="@{/filmZoeken/{id}/score(id=${id})}">
+                <label>Score:
+                    <input th:field="*{score}" type="number" min="1" max="10">
+                    <span th:errors="*{score}"></span>
+                </label>
+                <div class="button">
+                    <button class="rounded">Bewaren</button>
+                </div>
+            </form>
+        </div>
+        <div th:if="${score}">
+            <p>Je score voor deze film is
+                <strong>
+                    <th:block th:text="${score.getScore()}"></th:block>
+                </strong>
+            </p>
+        </div>
+    </div>
 </div>
 <footer th:replace="fragments::footer"></footer>
 </body>

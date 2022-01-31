@@ -14,11 +14,10 @@ public class Score {
     @JoinColumn(name = "gebruikerId")
     private Gebruiker gebruiker;
 
-    public Score(long id, long filmId, int score, Gebruiker gebruiker) {
-        this.id = id;
+    public Score(long filmId, int score, Gebruiker gebruiker) {
         this.filmId = filmId;
         this.score = score;
-        setGebruiker(gebruiker);
+        this.gebruiker =gebruiker;
     }
 
     protected Score() {
@@ -38,11 +37,5 @@ public class Score {
 
     public Gebruiker getGebruiker() {
         return gebruiker;
-    }
-
-    public void setGebruiker(Gebruiker gebruiker) {
-        if (!gebruiker.getScores().contains(this)) {
-            this.gebruiker = gebruiker;
-        }
     }
 }

@@ -3,10 +3,6 @@ nav {
     padding-right: 14em;
 }
 
-.container {
-    justify-content: space-around;
-}
-
 nav a:visited, a:link, a:active {
     text-decoration: none;
     color: gold;
@@ -43,7 +39,7 @@ error {
 }
 
 .container {
-    padding-bottom: 3.5em;
+    padding-bottom: 3.6em;
 }
 
 footer {
