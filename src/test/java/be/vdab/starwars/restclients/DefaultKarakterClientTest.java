@@ -3,7 +3,6 @@ package be.vdab.starwars.restclients;
 import be.vdab.starwars.exceptions.FilmNietGevondenException;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

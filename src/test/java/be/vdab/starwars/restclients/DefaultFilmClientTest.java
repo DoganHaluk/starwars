@@ -20,7 +20,7 @@ class DefaultFilmClientTest {
     }
 
     @Test
-    void findOnbestaandeFilm(){
+    void findOnbestaandeFilm() {
         assertThat(filmClient.findById(-1)).isEmpty();
     }
 }

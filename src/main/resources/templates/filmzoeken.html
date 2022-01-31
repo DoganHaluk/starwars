@@ -10,7 +10,7 @@
     <div class="button">
         <button class="rounded" id="zoeken">Zoeken</button>
     </div>
-    <h5 th:if="not ${film}">Film niet gevonden</h5>
+    <h5 th:if="${nietGevonden}" th:text="*{nietGevonden}"></h5>
     <dl th:if="${film}" th:object="${film.result.properties}">
         <dt>Titel</dt>
         <dd th:text="*{title}"></dd>

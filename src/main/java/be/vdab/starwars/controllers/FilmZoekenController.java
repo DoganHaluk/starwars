@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 @Controller
 @RequestMapping("filmZoeken")
@@ -31,6 +30,11 @@ class FilmZoekenController {
     @GetMapping("{id}")
     public ModelAndView getFilm(@PathVariable long id) {
         var modelAndView = new ModelAndView("filmzoeken");
+        if (filmClient.findById(id).isEmpty()){
+            modelAndView.addObject("nietGevonden", "Film is niet gevonden!");
+            return modelAndView;
+        }
+
         filmClient.findById(id).ifPresent(film -> modelAndView.addObject(film));
         var karakters = new ArrayList<>();
         for(String karakter : filmClient.findById(id).orElseThrow(FilmNietGevondenException::new).getResult().getProperties().getCharacters()){
