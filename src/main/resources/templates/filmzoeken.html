@@ -11,15 +11,15 @@
         <button class="rounded" id="zoeken">Zoeken</button>
     </div>
     <h5 th:if="not ${film}">Film niet gevonden</h5>
-    <dl th:if="${film}" th:object="${film}">
+    <dl th:if="${film}" th:object="${film.result.properties}">
         <dt>Titel</dt>
         <dd th:text="*{title}"></dd>
         <dt>Regisseur</dt>
-        <!--<dd th:text="*{director}"></dd>
+        <dd th:text="*{director}"></dd>
         <dt>Uitgekomen op</dt>
-        <dd th:text="*{releaseDate}"></dd>-->
-        <!--<dt>Karakters</dt>
-        <dd th:each="karakter:*{characters}" th:text="*{karakter}" th:object="*{characters}"></dd>-->
+        <dd th:text="*{releaseDate}"></dd>
+        <dt>Karakters</dt>
+        <dd th:each="karakter:${karakters}" th:text="${karakter}"></dd>
     </dl>
 </div>
 <footer th:replace="fragments::footer"></footer>

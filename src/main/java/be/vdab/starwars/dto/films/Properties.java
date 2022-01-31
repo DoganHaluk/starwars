@@ -1,24 +1,24 @@
-package be.vdab.starwars.dto;
+package be.vdab.starwars.dto.films;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public class Film {
+public class Properties {
     @JsonProperty("title")
     private String title;
-    /*@JsonProperty("director")
+    @JsonProperty("director")
     private String director;
     @JsonProperty("release_date")
     private String releaseDate;
     @JsonProperty("characters")
-    private String[] characters;*/
+    private List<String> characters;
 
     public String getTitle() {
         return title;
     }
 
-    /*public String getDirector() {
+    public String getDirector() {
         return director;
     }
 
@@ -26,7 +26,7 @@ public class Film {
         return releaseDate;
     }
 
-    public String[] getCharacters() {
+    public List<String> getCharacters() {
         return characters;
-    }*/
+    }
 }
