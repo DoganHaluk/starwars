@@ -1,5 +1,6 @@
 package be.vdab.starwars.controllers;
 
+import be.vdab.starwars.exceptions.FilmNietGevondenException;
 import be.vdab.starwars.restclients.FilmClient;
 import be.vdab.starwars.restclients.KarakterClient;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,6 @@ class FilmZoekenController {
         this.karakterClient = karakterClient;
     }
 
-
     @GetMapping
     public ModelAndView filmForm() {
         return new ModelAndView("filmzoeken");
@@ -33,8 +33,8 @@ class FilmZoekenController {
         var modelAndView = new ModelAndView("filmzoeken");
         filmClient.findById(id).ifPresent(film -> modelAndView.addObject(film));
         var karakters = new ArrayList<>();
-        for(String karakter : filmClient.findById(id).get().getResult().getProperties().getCharacters()){
-            karakters.add(karakterClient.findById(Long.parseLong(Arrays.stream(karakter.substring(34).split("/")).findFirst().get())));
+        for(String karakter : filmClient.findById(id).orElseThrow(FilmNietGevondenException::new).getResult().getProperties().getCharacters()){
+            karakters.add(karakterClient.findByURI(karakter));
         }
         modelAndView.addObject("karakters", karakters);
         return modelAndView;

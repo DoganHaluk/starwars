@@ -1,7 +1,6 @@
 package be.vdab.starwars.restclients;
 
 import be.vdab.starwars.dto.people.Karakter;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
@@ -9,18 +8,16 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 @Component
 public class DefaultKarakterClient implements KarakterClient {
     private final WebClient client;
-    private final String karakterURI;
 
-    DefaultKarakterClient(WebClient.Builder builder, @Value("${swapi.karakter}") String karakterURI) {
+    DefaultKarakterClient(WebClient.Builder builder) {
         client = builder.build();
-        this.karakterURI = karakterURI;
     }
 
     @Override
-    public String findById(long id) {
+    public String findByURI(String karakterURI) {
         try {
             return client.get()
-                    .uri(karakterURI, uriBuilder -> uriBuilder.build(id))
+                    .uri(karakterURI)
                     .retrieve()
                     .bodyToMono(Karakter.class)
                     .block()
