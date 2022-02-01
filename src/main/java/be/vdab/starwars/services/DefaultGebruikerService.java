@@ -15,6 +15,7 @@ public class DefaultGebruikerService implements GebruikerService{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Gebruiker findByEmail(String email) {
         return gebruikerRepository.findByEmail(email);
     }

@@ -42,6 +42,7 @@ class FilmZoekenController {
     @GetMapping("{id}")
     public ModelAndView getFilm(@PathVariable long id, Principal principal) {
         var modelAndView = new ModelAndView("filmzoeken");
+
         if (filmClient.findById(id).isEmpty()) {
             modelAndView.addObject("nietGevonden", "Film is niet gevonden!");
             return modelAndView;
@@ -65,9 +66,9 @@ class FilmZoekenController {
     }
 
     @PostMapping("/{id}/score")
-    public String setScore(@PathVariable long id, @Valid ScoreForm form, Principal principal, Errors error){
-        if(error.hasErrors()){
-            return "redirect:/filmZoeken/";
+    public String setScore(@PathVariable long id, @Valid ScoreForm form, Errors errors, Principal principal){
+        if(errors.hasErrors()){
+            return "redirect:/filmZoeken/"+id;
         }
         var gebruiker = gebruikerService.findByEmail(principal.getName());
         var score = new Score(id, form.getScore(), gebruiker);

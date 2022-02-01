@@ -24,9 +24,8 @@
         </dl>
         <div th:if="not ${score}">
             <form method="post" th:object="${scoreForm}" th:action="@{/filmZoeken/{id}/score(id=${id})}">
-                <label>Score:
+                <label>Score:<span th:errors="*{score}"></span>
                     <input th:field="*{score}" type="number" min="1" max="10">
-                    <span th:errors="*{score}"></span>
                 </label>
                 <div class="button">
                     <button class="rounded">Bewaren</button>
