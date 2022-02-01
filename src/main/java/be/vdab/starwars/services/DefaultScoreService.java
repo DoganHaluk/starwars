@@ -30,6 +30,7 @@ public class DefaultScoreService implements ScoreService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<GemiddeldeScoresPerFilm> findGemiddeldeScores() {
         return scoreRepository.findGemiddeldeScoresPerFilm();
     }

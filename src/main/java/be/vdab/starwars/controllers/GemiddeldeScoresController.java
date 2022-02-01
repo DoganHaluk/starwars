@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/gemiddeldeScores")
+@RequestMapping("gemiddeldeScores")
 public class GemiddeldeScoresController {
     private final ScoreService scoreService;
 
@@ -18,7 +18,7 @@ public class GemiddeldeScoresController {
     }
 
     @GetMapping
-    List<GemiddeldeScoresPerFilm> findGemiddeldeScores(){
+    List<GemiddeldeScoresPerFilm> findGemiddeldeScores() {
         return scoreService.findGemiddeldeScores();
     }
 }

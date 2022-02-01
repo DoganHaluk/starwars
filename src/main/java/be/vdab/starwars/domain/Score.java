@@ -17,7 +17,7 @@ public class Score {
     public Score(long filmId, int score, Gebruiker gebruiker) {
         this.filmId = filmId;
         this.score = score;
-        this.gebruiker =gebruiker;
+        this.gebruiker = gebruiker;
     }
 
     protected Score() {

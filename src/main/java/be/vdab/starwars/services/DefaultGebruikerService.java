@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class DefaultGebruikerService implements GebruikerService{
+public class DefaultGebruikerService implements GebruikerService {
     private final GebruikerRepository gebruikerRepository;
 
     public DefaultGebruikerService(GebruikerRepository gebruikerRepository) {
