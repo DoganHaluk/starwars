@@ -5,6 +5,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 
+import java.math.BigDecimal;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest(showSql = false)
@@ -18,6 +20,6 @@ public class ScoreRepositoryTest extends AbstractTransactionalJUnit4SpringContex
 
     @Test
     void findGemiddeldeScoresPerFilm() {
-        assertThat(repository.findGemiddeldeScoresPerFilm()).hasSize(6);
+        assertThat(repository.findGemiddeldeScoresPerFilm()).allSatisfy(score->assertThat(score.getGemiddelde()).isBetween(BigDecimal.ZERO, BigDecimal.TEN));
     }
 }
